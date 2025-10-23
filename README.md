@@ -12,6 +12,8 @@ u-boot-2016 源代码基于：https://github.com/gl-inet/uboot-ipq60xx
 
 ## 编译步骤
 
+### 本地编译
+
 ```bash
 # 编译环境：Ubuntu 22.04
 # mbn 脚本使用 python2.7 运行，请安装并切换到 python2.7
@@ -24,17 +26,21 @@ cd uboot-ipq60xx-emmc-build
 ./build.sh
 ```
 
+### 云编译
+
+使用本仓库 GitHub Actions 云编译。
+
 ## 文件说明
 
 编译生成的 U-Boot 文件：uboot-ipq60xx-emmc-build/openwrt-ipq6018-u-boot.mbn
 
 默认编译生成 Full 版本的 U-Boot，其 WebUI 更精美，但文件大小超过了 640KB。而京东云亚瑟、京东云雅典娜、红米 AX5 JDCloud 等 IPQ60xx eMMC 机型的 0:APPSBL 分区大小只有 640KB。若要刷写此 U-Boot，请先扩容 0:APPSBL 分区。[点击此处](http://example.com) 获取可用分区表。
 
-![uboot-full-index-page](./screenshots/uboot-full-index-page.jpg)
+![uboot-full-index-page](./screenshots/uboot-full-index-page.png)
 
 若不想扩容 0:APPSBL 分区，可以将 `u-boot-2016/httpd/vendors/cleanwrt/` 中的文件替换为 `u-boot-2016/httpd/vendors/cleanwrt_tiny/` 中的文件，这样将编译生成 Tiny 版本的 U-Boot，其 WebUI 较简陋，但文件大小小于 640KB，可直接刷写，无需扩容 0:APPSBL 分区。
 
-![uboot-tiny-index-page](./screenshots/uboot-tiny-index-page.jpg)
+![uboot-tiny-index-page](./screenshots/uboot-tiny-index-page.png)
 
 > [!NOTE]
 >
