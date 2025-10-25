@@ -8,7 +8,7 @@ permissions: write-all
 jobs:
   core:
     name: build-and-release
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout Projects
         uses: actions/checkout@main
@@ -18,7 +18,7 @@ jobs:
           DEBIAN_FRONTEND: noninteractive
         run: |
           sudo apt update
-          sudo apt install -y build-essential device-tree-compiler python2.7
+          sudo apt install -y build-essential device-tree-compiler python3
           sudo -E systemctl daemon-reload
           sudo -E timedatectl set-timezone "Asia/Shanghai"
 
