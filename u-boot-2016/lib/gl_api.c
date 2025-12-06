@@ -100,6 +100,8 @@ void check_button_is_press(void)
         button_name = "RESET";
     } else if (button_is_press("wps_key", GL_WPS_BUTTON_IS_PRESS)) {
         button_name = "WPS";
+    } else if (button_is_press("screen_key", GL_SCREEN_BUTTON_IS_PRESS)) {
+        button_name = "SCREEN";
     }
 
 	// 如果任一按键被按下
@@ -109,8 +111,10 @@ void check_button_is_press(void)
 
         if (strcmp(button_name, "RESET") == 0) {
             still_pressed = button_is_press("reset_key", GL_RESET_BUTTON_IS_PRESS);
-        } else {
+        } else if (strcmp(button_name, "WPS") == 0) {
             still_pressed = button_is_press("wps_key", GL_WPS_BUTTON_IS_PRESS);
+        } else if (strcmp(button_name, "SCREEN") == 0) {
+            still_pressed = button_is_press("screen_key", GL_SCREEN_BUTTON_IS_PRESS);
         }
 
         if (!still_pressed) {

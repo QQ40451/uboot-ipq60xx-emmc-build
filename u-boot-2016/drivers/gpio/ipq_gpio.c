@@ -212,6 +212,7 @@ void gl_btn_init(void)
 {
 	gl_gpio_init("reset_key");
 	gl_gpio_init("wps_key");
+	gl_gpio_init("screen_key");
 
 	/*unsigned int *gpio_base;
 

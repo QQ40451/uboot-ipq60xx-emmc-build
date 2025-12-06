@@ -6,6 +6,7 @@
 
 #define GL_RESET_BUTTON_IS_PRESS        0
 #define GL_WPS_BUTTON_IS_PRESS          0
+#define GL_SCREEN_BUTTON_IS_PRESS       0
 
 #define LED_ON 1
 #define LED_OFF 0
